@@ -1,0 +1,55 @@
+#-----------------------------------------------------------------------------------------------
+software used:
+
+- exiftools # have not used this so far
+ . sudo pacman -Sy
+ . sudo pacman -S perl-image-exiftool
+
+-libreoffice
+ . sudo pacman -S libreoffice
+ . sudo pacman -S default-jre
+ if java is needed to work with libreoffice (arch)
+ . sudo pacman -S jre-openjdk
+ . export JAVA_HOME=/usr/lib/jvm/default
+
+ - imagemagick
+  . use the package manager to download
+
+  . however is you package manager is not up to date "debian for example :( and you get the old version"
+    - wget https://www.imagemagick.org/download/ImageMagick.tar.gz
+    - tar xvzf ImageMagick.tar.gz
+    - cd ImageMagick-*
+    - ./configure
+    - make
+    - sudo make install
+    - now to set it up after install
+       sudo find / -name "libMagickCore-7.Q16HDRI.so.10" 2>/dev/null
+       sudo ldconfig <location>
+    - permanent config
+      echo "/home/seb/ImageMagick-7.1.1-34/MagickCore/.libs/" | sudo tee /etc/ld.so.conf.d/imagemagick.conf
+      sudo ldconfig
+      
+    - last check if installed
+      magick --version
+      ("convert" is the legacy version and won't able to convert images to pdf)
+
+
+- unzip 
+
+- librewdwg
+   . best way to get this software is to comiple it from source and use:
+   	tar -xvzf
+	wget
+	./autogen.sh
+	./configure
+	make
+	sudo make install
+
+pip installs:
+- xmltodict 
+- tqdm
+- pyoo
+- exifread
+- pillow
+- pypdf2
+- xattr
